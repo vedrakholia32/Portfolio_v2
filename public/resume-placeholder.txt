@@ -1,0 +1,18 @@
+# Sample Resume PDF
+
+This is a placeholder for the resume PDF file. In a real portfolio, you would place your actual resume PDF here at `/public/resume.pdf`.
+
+The resume should include:
+- Contact information
+- Professional summary
+- Work experience
+- Education
+- Skills
+- Projects
+- Certifications (if any)
+
+Make sure the PDF is:
+- Well-formatted and professional
+- Up-to-date with your latest experience
+- Optimized for both screen and print viewing
+- ATS-friendly (if applying through job portals)
