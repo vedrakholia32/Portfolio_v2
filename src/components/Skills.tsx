@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import TextScramble from './TextScramble';
 
 const skills = [
   {
@@ -39,8 +40,7 @@ const skills = [
 
 export default function Skills() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  return (
+  const isInView = useInView(ref, { once: true, amount: 0.3 });  return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -53,9 +53,12 @@ export default function Skills() {
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text'
-          }}>
-            Skills & Technologies
+            backgroundClip: 'text'          }}>
+            <TextScramble 
+              text="Skills & Technologies" 
+              delay={isInView ? 300 : 0}
+              speed={60}
+            />
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
