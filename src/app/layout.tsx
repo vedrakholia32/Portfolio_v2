@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "John Smith - Full Stack Software Engineer",
+  title: "Ved Rakholia - Full Stack Software Engineer",
   description: "Passionate full stack software engineer specializing in React, Next.js, and cloud architectures. Available for new opportunities and collaborations.",
   keywords: ["Software Engineer", "Full Stack Developer", "React", "Next.js", "TypeScript", "Web Development"],
   authors: [{ name: "John Smith" }],
