@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, ReactNode } from 'react';
+import { useRef, ReactNode } from 'react';
 import { motion, useTransform, useScroll } from 'framer-motion';
 
 interface ParallaxProps {
@@ -16,38 +16,37 @@ export default function Parallax({
   className = '',
   direction = 'up'
 }: ParallaxProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+  const ref = useRef<HTMLDivElement>(null);  const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
+  // Always call hooks - calculate transforms for both x and y
+  const yUp = useTransform(scrollYProgress, [0, 1], [0, -speed * 100]);
+  const yDown = useTransform(scrollYProgress, [0, 1], [0, speed * 100]);
+  const xLeft = useTransform(scrollYProgress, [0, 1], [0, -speed * 100]);
+  const xRight = useTransform(scrollYProgress, [0, 1], [0, speed * 100]);
+  const noTransform = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
-  let transform;
-  switch (direction) {
-    case 'up':
-      transform = useTransform(scrollYProgress, [0, 1], [0, -speed * 100]);
-      break;
-    case 'down':
-      transform = useTransform(scrollYProgress, [0, 1], [0, speed * 100]);
-      break;
-    case 'left':
-      transform = useTransform(scrollYProgress, [0, 1], [0, -speed * 100]);
-      break;
-    case 'right':
-      transform = useTransform(scrollYProgress, [0, 1], [0, speed * 100]);
-      break;
-    default:
-      transform = useTransform(scrollYProgress, [0, 1], [0, -speed * 100]);
-  }
-
-  const style = direction === 'left' || direction === 'right' 
-    ? { x: transform }
-    : { y: transform };
+  // Select the appropriate transform based on direction
+  const getStyle = () => {
+    switch (direction) {
+      case 'up':
+        return { y: yUp };
+      case 'down':
+        return { y: yDown };
+      case 'left':
+        return { x: xLeft };
+      case 'right':
+        return { x: xRight };
+      default:
+        return { y: noTransform };
+    }
+  };
 
   return (
     <motion.div
       ref={ref}
-      style={style}
+      style={getStyle()}
       className={className}
     >
       {children}

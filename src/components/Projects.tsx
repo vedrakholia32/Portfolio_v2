@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowTopRightOnSquareIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -99,10 +100,11 @@ export default function Projects() {
                   index % 2 === 1 ? 'md:grid-flow-col-dense' : ''
                 }`}
               >                <div className={index % 2 === 1 ? 'md:col-start-2' : ''}>
-                  <div className="neu-card-white p-4 group overflow-hidden">
-                    <img
+                  <div className="neu-card-white p-4 group overflow-hidden">                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={800}
+                      height={256}
                       className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 rounded-xl"
                     />
                     <div className="absolute inset-0 bg-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
@@ -161,10 +163,11 @@ export default function Projects() {
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                   className="neu-card-white p-6 hover:scale-105 transition-transform duration-300"
-                >                  <div className="neu-inset p-2 mb-4 overflow-hidden">
-                    <img
+                >                  <div className="neu-inset p-2 mb-4 overflow-hidden">                    <Image
                       src={project.image}
                       alt={project.title}
+                      width={800}
+                      height={160}
                       className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105 rounded-lg"
                     />
                   </div>

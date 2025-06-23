@@ -39,9 +39,8 @@ export default function Contact() {
       subject: '',
       message: ''
     });
-    setIsSubmitting(false);
-      // Show success message (you can implement a toast notification here)
-    alert('Thank you for your message! I\'ll get back to you soon.');
+    setIsSubmitting(false);      // Show success message (you can implement a toast notification here)
+    alert('Thank you for your message! I&apos;ll get back to you soon.');
   };
 
   return (
@@ -53,13 +52,11 @@ export default function Contact() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 neu-gradient-text">
-            Let's Work Together
+        >          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 neu-gradient-text">
+            Let&apos;s Work Together
           </h2>
-          <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-            I'm always interested in new opportunities and collaborations. 
-            Whether you have a project in mind or just want to connect, I'd love to hear from you.
+          <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">            I&apos;m always interested in new opportunities and collaborations. 
+            Whether you have a project in mind or just want to connect, I&apos;d love to hear from you.
           </p>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
